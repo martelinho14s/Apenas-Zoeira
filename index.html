@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gordo Game</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="clique.css">
 </head>
+
 <body>
 
   <div id="gameArea">
     <h1>Clique na Picture do Guilherme Chioca Malhando</h1>
-    <h2>1 Milhão de vezes para ele perder 1kg</h2>
+    <h2>100 de vezes para ele perder 1kg</h2>
     <div id="score">⬇ Clique ⬇</div>
   </div>
+
+  <img id="guilhermeImage" src="bolso.png">
 
   <script>
     let score = 0;
@@ -34,7 +38,11 @@
     }
 
     function updateScore() {
-      document.getElementById('score').textContent = `Clique: ${score}`;
+      document.getElementById('score').textContent = `Cliques: ${score}`;
+
+      if (score >= 100) {
+        document.getElementById('guilhermeImage').style.display = 'block';
+      }
     }
 
     // Iniciar o jogo
@@ -42,4 +50,5 @@
   </script>
 
 </body>
+
 </html>
