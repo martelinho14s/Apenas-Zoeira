@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicker Game</title>
+  <link rel="stylesheet" href="clique.css">
+</head>
+<body>
+
+  <div id="gameArea">
+    <h1>Clique na Picture do Guilherme Chioca Malhando</h1>
+    <h2>1 Milhão de vezes para ele perder 1kg</h2>
+    <div id="score">⬇ Clique ⬇</div>
+  </div>
+
+  <script>
+    let score = 0;
+
+    function createTarget() {
+      const target = document.createElement('div');
+      target.className = 'target';
+      target.style.left = `${Math.random() * (window.innerWidth - 50)}px`;
+      target.style.top = `${Math.random() * (window.innerHeight - 50)}px`;
+
+      target.addEventListener('click', () => {
+        score += 1;
+        updateScore();
+        target.remove();
+        createTarget();
+      });
+
+      document.getElementById('gameArea').appendChild(target);
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent = `Clique: ${score}`;
+    }
+
+    // Iniciar o jogo
+    createTarget();
+  </script>
+
+</body>
+</html>
